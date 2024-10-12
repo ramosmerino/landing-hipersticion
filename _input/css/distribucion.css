@@ -1,0 +1,64 @@
+
+/* Estilos para la página de distribución */
+.distribution-list {
+    width: 100%;
+    border: 1px solid #d05240;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.distribution-header,
+.distribution-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    padding: 1rem;
+}
+
+.distribution-header {
+    background-color: #d05240;
+    color: white;
+    font-weight: bold;
+}
+
+.distribution-item {
+    border-bottom: 1px solid #d05240;
+}
+
+.distribution-item:last-child {
+    border-bottom: none;
+}
+
+.distribution-item span {
+    padding: 0.5rem;
+}
+
+.distribution-item a {
+    color: #d05240;
+    text-decoration: none;
+}
+
+.distribution-item a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .distribution-header,
+    .distribution-item {
+        grid-template-columns: 1fr;
+    }
+
+    .distribution-header {
+        display: none;
+    }
+
+    .distribution-item span {
+        padding: 0.25rem;
+    }
+
+    .distribution-item span:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 100%;
+    }
+}

@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<div class="column-2">
+{% include 'menu.njk' %}
+</div>
+<div class="column-2">
+    <article class="blog-post">
+        <h1>{{ title }}</h1>
+        <p class="blog-date">{{ date }}</p>
+        {{ content | safe }}
+    </article>
+</div>

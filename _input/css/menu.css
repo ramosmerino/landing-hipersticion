@@ -1,0 +1,15 @@
+.menu {
+    position: fixed;
+    top: 33%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.column-2 {
+    position: relative;
+    width: 50%;
+    display: block;
+}

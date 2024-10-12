@@ -1,0 +1,3 @@
+Sitemap: https://hipersticion.xyz/sitemap.xml
+User-agent: *
+Disallow:
