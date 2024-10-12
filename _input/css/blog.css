@@ -8,8 +8,6 @@
 .blog-preview {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .blog-preview h2 {
@@ -39,8 +37,6 @@
 .blog-post {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .blog-post h1 {
