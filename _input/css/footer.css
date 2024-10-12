@@ -47,7 +47,18 @@
     border-right: 1px solid #fff;
 }
 
-/* Ajuste para el contenido principal */
 .container {
-    padding-bottom: 100px; /* Ajusta este valor según la altura de tu footer */
+    padding-bottom: 40px;
+    height: auto;
+}
+
+.marquee {
+    display: none;
+}
+
+/* Media queries para tablets */
+@media (min-width: 768px) {
+    .marquee {
+        display: block;
+    }
 }

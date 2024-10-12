@@ -1,7 +1,4 @@
 .menu {
-    position: fixed;
-    top: 33%;
-    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,6 +10,7 @@ h1.title {
     text-align: right;
     margin: 5px 25px;
 }
+
 .title {
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
@@ -20,6 +18,7 @@ h1.title {
     font-style: normal;
     transition: opacity 0.3s ease;
 }
+
 .title-hover {
     position: absolute;
     opacity: 0;
@@ -27,30 +26,24 @@ h1.title {
 }
 
 .logo {
-    width: auto;
-    height: 120px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
 }
 
 .logo a {
-    width: 109px;
-    height: 120px;
-    margin-right: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.logo a:hover .logo-button {
-    fill: #f6cdad;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d05240;
+    text-decoration: none;
 }
 
 .logo a svg {
-    position: relative;
-    z-index: 1;
+    width: 32px;
+    height: auto;
+    margin: 5px;
 }
 
 .logo-button {
@@ -61,19 +54,70 @@ h1.title {
     stroke-width: 4;
 }
 
-.logo-item--distribucion {
-    margin-left: -25px;
-}
-
-.logo img {
-    max-width: 100%;
-    height: auto;
-}
-
 .logo text {
     font-size: 14px;
     fill: #333;
     text-anchor: middle;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.logo a strong {
+    color: #000;
+    text-decoration: none;
+}
+
+.menu {
+    background: #fff;
+}
+
+/* Media queries para tablets */
+@media (min-width: 768px) {
+    .menu {
+        position: fixed;
+        top: 33%;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background: transparent;
+    }
+
+    .logo {
+        width: auto;
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .logo a {
+        width: 109px;
+        height: 120px;
+        margin-right: 10px;
+        display: inline-block;
+        position: relative;
+        border: none;
+    }
+
+    .logo a svg {
+        position: relative;
+        width: auto;
+        z-index: 1;
+    }
+
+    .logo a strong {
+        display: none;
+    }
+
+    .logo-item--distribucion {
+        margin-left: -25px;
+    }
+
+    .logo a:hover .logo-button {
+        fill: #f6cdad;
+    }
 }

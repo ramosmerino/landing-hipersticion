@@ -1,8 +1,15 @@
 .inicio {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    padding: 0 20px;
+    display: none;
+}
+
+/* Media queries para tablets */
+@media (min-width: 768px) {
+    .inicio {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding: 0 20px;
+    }
 }
