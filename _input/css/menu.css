@@ -11,5 +11,57 @@
 .column-2 {
     position: relative;
     width: 50%;
-    display: block;
+}
+
+
+.logo {
+    width: auto;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo a {
+    width: 109px;
+    height: 120px;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo a:hover .logo-button {
+    fill: #f6cdad;
+}
+
+.logo a svg {
+    position: relative;
+    z-index: 1;
+}
+
+.logo-button {
+    fill: #d05240;
+    stroke: #d05240;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 4;
+}
+
+.logo-item--distribucion {
+    margin-left: -25px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo text {
+    font-size: 14px;
+    fill: #333;
+    text-anchor: middle;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }

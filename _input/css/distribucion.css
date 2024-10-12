@@ -1,9 +1,14 @@
 
 /* Estilos para la página de distribución */
+.distribucion {
+    background: #d05240;
+    border: 2px solid #d05240;
+}
+
 .distribution-list {
     width: 100%;
     border: 1px solid #d05240;
-    overflow: hidden;
+    background: #f6cdad;
 }
 
 .distribution-header,

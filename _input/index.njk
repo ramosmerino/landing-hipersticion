@@ -2,24 +2,10 @@
 layout: base.njk
 title: Inicio
 ---
-<section class="landing">
+
+<div class="column-2 inicio-menu">
+    {% include 'menu.njk' %}
+</div>
+<section class="column-2 inicio">
     <h1 class="title">HIPERSTICIÓN</h1>
-    <h1 class="title title-hover" id="hoverTitle"></h1>
-    <div class="logo">
-        <a href="/" class="logo-item--inicio" data-hover-text="INICIO">
-            <img src="/img/inicio.svg" alt="Inicio">
-        </a>
-        <a href="/catalogo" class="logo-item--catalogo" data-hover-text="CATÁLOGO">
-            <img src="/img/catalogo.svg" alt="Catálogo">
-        </a>
-        <a href="/proyecto" class="logo-item--proyecto" data-hover-text="PROYECTO">
-            <img src="/img/proyecto.svg" alt="Proyecto">
-        </a>
-        <a href="/distribucion" class="logo-item--distribucion" data-hover-text="DISTRIBUCIÓN">
-            <img src="/img/distribucion.svg" alt="Distribución">
-        </a>
-        <a href="/blog" class="logo-item--blog" data-hover-text="BLOG">
-            <img src="/img/blog.svg" alt="Blog">
-        </a>
-    </div>
 </section>
