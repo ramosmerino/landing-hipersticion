@@ -1,5 +1,6 @@
 .catalogo {
   display: relative;
+  border-top: 2px solid #d05240;
 }
 
 .book-grid {
@@ -21,7 +22,6 @@
 
 .book-cover {
   width: 100%;
-  height: 300px;
   object-fit: cover;
 }
 

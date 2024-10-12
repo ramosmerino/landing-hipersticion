@@ -2,7 +2,7 @@
 /* Estilos para la página de distribución */
 .distribucion {
     background: #d05240;
-    border: 2px solid #d05240;
+    border-top: 2px solid #d05240;
 }
 
 .distribution-list {

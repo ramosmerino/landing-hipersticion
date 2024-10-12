@@ -47,11 +47,6 @@
     border-right: 1px solid #fff;
 }
 
-.container {
-    padding-bottom: 40px;
-    height: auto;
-}
-
 .marquee {
     display: none;
 }

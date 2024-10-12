@@ -2,6 +2,7 @@
 /* Estilos para el blog */
 .blog-list {
     display: grid;
+    border-top: 2px solid #d05240;
 }
 
 .blog-preview {

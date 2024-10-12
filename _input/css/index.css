@@ -19,17 +19,18 @@ html {
     height: 100%;
     font-family: "Space Grotesk", sans-serif;
     background: linear-gradient(to right, #f6cdad, #f6e0d0),
-        url(img/noise.svg);
+        url(/img/noise.svg);
     min-height: 100%;
     animation: bganimation 5s ease infinite;
 }
 
 .container {
-    height: 100%;
+    padding-bottom: 40px;
+    height: auto;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-}
+} 
 
 .column-2 {
     position: relative;
@@ -47,21 +48,10 @@ html {
     }
 
     .container {
+        height: 100%;
         flex-wrap: nowrap;
         flex-direction: row-reverse;
-    }
-}
-
-/* Media queries para desktops */
-@media (min-width: 1024px) {
-    .column-2 {
-        position: relative;
-        width: 50%;
-    }
-
-    .container {
-        flex-wrap: nowrap;
-        flex-direction: row-reverse;
+        background: transparent;
     }
 }
 

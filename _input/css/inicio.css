@@ -2,8 +2,22 @@
     display: none;
 }
 
+.silla {
+    border-top: 2px solid #d05240;
+    border-bottom: 2px solid #d05240;
+}
+
 /* Media queries para tablets */
 @media (min-width: 768px) {
+    .silla {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 50vw;
+        border-right: 2px solid #d05240;
+    }
+
     .inicio {
         height: 100%;
         display: flex;
