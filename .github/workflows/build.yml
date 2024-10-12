@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies & build
         run: |
           npm install
-          npx @11ty/eleventy --pathprefix https://ramosmerino.github.io/landing-hipersticion
+          npx @11ty/eleventy --pathprefix landing-hipersticion
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
