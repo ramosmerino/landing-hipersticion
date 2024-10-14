@@ -7,7 +7,7 @@ export default function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		extensions: "html",
-		formats: ["auto"],
+		formats: ["webp", "jpeg"],
 		defaultAttributes: {
 			loading: "lazy",
 			decoding: "async",

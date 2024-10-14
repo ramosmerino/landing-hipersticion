@@ -12,9 +12,10 @@
     .silla {
         position: fixed;
         top: 0;
-        left: 0;
+        left: 1px;
         z-index: 0;
         width: 50vw;
+        height: 90%;
         border-right: 2px solid #d05240;
     }
 

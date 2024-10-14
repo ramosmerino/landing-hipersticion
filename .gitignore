@@ -14,3 +14,4 @@
 # Visual Studio Code
 /.vscode
 .history
+.DS_Store
