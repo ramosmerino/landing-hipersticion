@@ -1,6 +1,7 @@
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import { DateTime } from "luxon";
+import faviconsPlugin from "eleventy-plugin-gen-favicons";
 
 export default function (eleventyConfig) {
 	eleventyConfig.setInputDirectory("_input");
@@ -13,6 +14,7 @@ export default function (eleventyConfig) {
 			decoding: "async",
 		},
 	});
+	eleventyConfig.addPlugin(faviconsPlugin, {});
 	eleventyConfig.addFilter("postDate", (dateObj) => {
 		return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
 	});
