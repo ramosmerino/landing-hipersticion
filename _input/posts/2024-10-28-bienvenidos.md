@@ -17,7 +17,7 @@ Creemos que la capacidad transformadora de la palabra escrita es estéril sin ac
 Bienvenidos, entonces, a este espacio donde los límites entre la teoría y ficción se desdibujan, lo posible se hace presente y las ideas se vuelven realidad. Esperamos que, junto a nosotros, se atrevan a imaginar y a escribir esas líneas temporales que, de alguna manera, ya nos pertenecen.
 
 
-### Editorial Hipersitición
+<h3>Editorial Hipersitición</h3>
 
 + Doogu, cisma inicial, partidor de las aguas.
 + Sukugool, succionador necrófago, la implosión y diluvio.
