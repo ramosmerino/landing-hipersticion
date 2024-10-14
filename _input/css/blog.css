@@ -37,6 +37,7 @@
 .blog-post {
     background-color: #fff;
     padding: 2rem;
+    padding-bottom: 100px;
 }
 
 .blog-post h1 {

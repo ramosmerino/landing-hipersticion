@@ -7,7 +7,7 @@ layout: base.njk
 <div class="column-2">
     <article class="blog-post">
         <h1>{{ title }}</h1>
-        <p class="blog-date">{{ date }}</p>
+        <p class="blog-date">{{ date | postDate }}</p>
         {{ content | safe }}
     </article>
 </div>
