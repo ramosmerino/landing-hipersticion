@@ -36,6 +36,10 @@ html {
     position: relative;
 }
 
+a {
+    color: #d05240;
+}
+
 /* Media queries para tablets */
 @media (min-width: 768px) {
     body {
