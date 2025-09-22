@@ -8,7 +8,7 @@ tags: post
 
 *Leer escuchando La noche - Raphael*
 
-La noche. Lo nocturno nos invita a un viaje inquietante y fascinante a través de las formas nocturnas que emergen cuando el sol se oculta y la realidad se transforma. Es la noche lo que inspira tapas negras de este libro, así como su contenido que, como una vela, nos acompaña echando luz para movernos en las distintas oscuridades del ser. Una inmersión en las profundidades de la experiencia humana tras el ocaso, donde las sombras revelan sus propios habitantes y rituales, susurros de otros tiempos que se entrelazan con las ansiedades y misterios del presente.
+La noche. Lo nocturno nos invita a un viaje inquietante y fascinante a través de las formas nocturnas que emergen cuando el sol se oculta y la realidad se transforma. Es la noche lo que inspira las tapas negras de este libro, así como su contenido que, como una vela, nos acompaña echando luz para movernos en las distintas oscuridades del ser. Una inmersión en las profundidades de la experiencia humana tras el ocaso, donde las sombras revelan sus propios habitantes y rituales, susurros de otros tiempos que se entrelazan con las ansiedades y misterios del presente.
 
 Mohaghegh nos lleva de la mano (para no perdernos del todo) entre distintos pasajes nocturnos, cambiando el escenario en cada capítulo: la noche del ladrón, la noche del lunático, la noche de la hechicera y la noche del revolucionario. En cada una de estas formas, la noche se convierte en un escenario donde lo acechante se manifiesta y lo reprimido encuentra espacio para expandirse. Las figuras que pueblan estas páginas son arquetipos, encarnando deseos, transgresiones y liberaciones que solo pueden desplegarse en la oscuridad.
 
