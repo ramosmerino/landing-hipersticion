@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title, description, image = FallbackImage } = Astro.props;
-const siteUrl = 'https://hipersticion.xyz';
+const siteUrl = Astro.site?.href;
 ---
 
 <meta charset="utf-8" />
