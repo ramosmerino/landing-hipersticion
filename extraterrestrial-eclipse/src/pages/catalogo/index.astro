@@ -1,0 +1,175 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Menu from '../../components/Menu.astro';
+
+const title = 'Catálogo de Libros';
+const description = 'Explora nuestro catálogo de libros de filosofía, ciencia y pensamiento contemporáneo.';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Menu />
+		<main class="catalogo-container">
+			<div class="catalogo-content">
+				<div class="book-grid">
+						<div class="book-item">
+							<img src="/img/portada-noche.png" alt="Portada de Noche" class="book-cover">
+							<h2 class="book-title">Noche: Filosofía tras la Oscuridad</h2>
+							<p class="book-author">Jason Bahbak Mohaghegh</p>
+							<p class="book-description">La presente obra es un paseo por distintas formas nocturnas, aquello que cae y aquello que
+								surge durante la noche. Explora a los habitantes más fascinantes de esas horas insomnes y los rituales, colectivos y
+								personajes, que realizan con cada ocaso: la noche del ladrón, la noche del lunático, la noche de la hechicera y la noche
+								del revolucionario son algunos de los pasajes a visitar. Desde rituales antiguos, historias medievales, hasta imágenes
+								futuristas para poder explorar la experiencia humana después del ocaso.</p>
+						</div>
+						<div class="book-item">
+							<img src="/img/portada-ciencia-intensiva.png" alt="Portada de Ciencia Intensiva y Filosfía Virtual" class="book-cover">
+							<h2 class="book-title">Ciencia Intensiva y Filosofía Virtual</h2>
+							<p class="book-author">Manuel DeLanda</p>
+							<p class="book-description">Manuel DeLanda acerca la ontología de Deleuze a filósofos analíticos de la ciencia y a
+								científicos interesados en preguntas filosóficas, buscando desmoronar el cisma entre continental y analítico. Para esto,
+								retoma y potencia el realismo presente en el filósofo francés retomando un concepto fundamental: lo virtual. Mostrando
+								un profundo y variado conocimiento, el autor despliega una estructurada reflexión conceptual sobre lo virtual, como una
+								categoría decisiva para abandonar un pensamiento escencialista, actualista y lineal, así construir un nuevo realismo.
+								<em>Coeditado junto a
+									<a href="https://tintalimon.com.ar/">Tinta Limón</a></em>
+									</p>
+								</div>
+								<div class="book-item">
+									<img src="/img/portada-noche.png" alt="Portada de Libro 1" class="book-cover">
+									<h2 class="book-title">Noche: filosofía tras la oscuridad</h2>
+									<p class="book-author">Jason Bahbak Mohaghegh</p>
+									<p class="book-description">La presente obra es un paseo por distintas formas nocturnas, aquello que cae y aquello que
+										surge durante la noche. Explora a los habitantes más fascinantes de esas horas insomnes y los rituales, colectivos y
+										personajes, que realizan con cada ocaso: la noche del ladrón, la noche del lunático, la noche de la hechicera y la noche
+										del revolucionario son algunos de los pasajes a visitar. Desde rituales antiguos, historias medievales, hasta imágenes
+										futuristas para poder explorar la experiencia humana después del ocaso.</p>
+								</div>
+								<div class="book-item">
+									<img src="/img/portada-noche.png" alt="Portada de Libro 1" class="book-cover">
+									<h2 class="book-title">Noche: filosofía tras la oscuridad</h2>
+									<p class="book-author">Jason Bahbak Mohaghegh</p>
+									<p class="book-description">La presente obra es un paseo por distintas formas nocturnas, aquello que cae y aquello que
+										surge durante la noche. Explora a los habitantes más fascinantes de esas horas insomnes y los rituales, colectivos y
+										personajes, que realizan con cada ocaso: la noche del ladrón, la noche del lunático, la noche de la hechicera y la noche
+										del revolucionario son algunos de los pasajes a visitar. Desde rituales antiguos, historias medievales, hasta imágenes
+										futuristas para poder explorar la experiencia humana después del ocaso.</p>
+								</div>
+								<div class="book-item">
+									<img src="/img/portada-noche.png" alt="Portada de Libro 1" class="book-cover">
+									<h2 class="book-title">Noche: filosofía tras la oscuridad</h2>
+									<p class="book-author">Jason Bahbak Mohaghegh</p>
+									<p class="book-description">La presente obra es un paseo por distintas formas nocturnas, aquello que cae y aquello que
+										surge durante la noche. Explora a los habitantes más fascinantes de esas horas insomnes y los rituales, colectivos y
+										personajes, que realizan con cada ocaso: la noche del ladrón, la noche del lunático, la noche de la hechicera y la noche
+										del revolucionario son algunos de los pasajes a visitar. Desde rituales antiguos, historias medievales, hasta imágenes
+										futuristas para poder explorar la experiencia humana después del ocaso.</p>
+								</div>
+								<div class="book-item">
+									<img src="/img/portada-noche.png" alt="Portada de Libro 1" class="book-cover">
+									<h2 class="book-title">Noche: filosofía tras la oscuridad</h2>
+									<p class="book-author">Jason Bahbak Mohaghegh</p>
+									<p class="book-description">La presente obra es un paseo por distintas formas nocturnas, aquello que cae y aquello que
+										surge durante la noche. Explora a los habitantes más fascinantes de esas horas insomnes y los rituales, colectivos y
+										personajes, que realizan con cada ocaso: la noche del ladrón, la noche del lunático, la noche de la hechicera y la noche
+										del revolucionario son algunos de los pasajes a visitar. Desde rituales antiguos, historias medievales, hasta imágenes
+										futuristas para poder explorar la experiencia humana después del ocaso.</p>
+								</div>
+				</div>
+			</div>
+		</main>
+				<Footer />
+			</body>
+		</html>
+
+		<style>
+			.catalogo-container {
+				margin-left: 50%;
+				min-height: 100vh;
+				border-top: 2px solid #d05240;
+				padding: 2rem;
+			}
+
+			.catalogo-content {
+				width: 100%;
+			}
+
+			.book-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				gap: 0;
+			}
+
+			.book-item {
+				background: #fff;
+				border: 1px solid #000;
+				overflow: hidden;
+				transition: transform 0.3s ease;
+			}
+
+			.book-item:hover {
+				transform: translateY(-5px);
+			}
+
+			.book-cover {
+				width: 100%;
+				object-fit: cover;
+			}
+
+			.book-title {
+				font-family: "Space Grotesk", sans-serif;
+				font-size: 1.2rem;
+				margin: 1rem 0 0.5rem;
+				padding: 0 1rem;
+			}
+
+			.book-author {
+				font-style: italic;
+				margin: 0 0 0.5rem;
+				padding: 0 1rem;
+			}
+
+			.book-description {
+				font-size: 0.9rem;
+				line-height: 1.4;
+				margin: 0 0 1rem;
+				padding: 0 1rem;
+			}
+
+			.book-description a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+
+			.book-description a:hover {
+				text-decoration: underline;
+			}
+
+			/* Media queries para tablets y desktop */
+			@media (min-width: 768px) {
+				.catalogo-container {
+					margin-left: 50%;
+					border-top: 2px solid var(--accent);
+				}
+
+				.book-grid {
+					grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				}
+			}
+
+			@media (max-width: 768px) {
+				.catalogo-container {
+					margin-left: 0;
+					border-top: 2px solid var(--accent);
+				}
+
+				.book-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>

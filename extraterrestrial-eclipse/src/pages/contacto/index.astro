@@ -1,0 +1,107 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Menu from '../../components/Menu.astro';
+
+const title = 'Proyecto';
+const description = 'Hiperstición es una editorial cooperativa autogestionada dedicada a la reflexión filosófica y la difusión de nuevas ideas.';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Menu />
+		<main class="contacto-container">
+			<div class="contacto-content">
+				<article>
+					<p>
+						<strong>Hiperstición</strong> es una
+						<strong>editorial cooperativa autogestionada</strong>, fundada en el año 2022 en la infósfera de las plataformas
+						sociales, que por practicidad física gravitó a Santiago de Chile.
+					</p>
+					<p>
+						El catálogo invita a la reflexión de las nuevas filosofías, poniendo a disposición lecturas no disponibles antes en
+						español. Desde esta base, trazaremos un recorrido transversal y heterodoxo, donde las personas integrantes de la
+						cooperativa puedan publicar sus intereses colectivizados, sean ensayos, novelas, poesía y lo que nos permita generar
+						conexiones entre grupos diversos con teleologías compartidas.
+					</p>
+					<p>
+						Buscamos hipersticionar los futuros que nos fueron arrebatados, ya sea para vivir las utopías o para sobrevivir al
+						desierto.
+					</p>
+					<p>
+						<strong>Comisiones:</strong>
+						<ul>
+							<li>Comisión Diseño</li>
+							<li>Comisión Digital</li>
+							<li>Comisión Traducción</li>
+							<li>Comisión Administrativa</li>
+							<li>Comisión Imprenta</li>
+						</ul>
+					</p>
+				</article>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.contacto-container {
+		margin-left: 50%;
+		min-height: 100vh;
+		border-top: 2px solid #d05240;
+		padding: 2rem;
+	}
+
+	.contacto-content {
+		width: 100%;
+		max-width: 800px;
+	}
+
+	article {
+		font-size: 1.1rem;
+		line-height: 1.8;
+	}
+
+	article p {
+		margin-bottom: 1.5rem;
+	}
+
+	article strong {
+		font-weight: 700;
+		color: #d05240;
+	}
+
+	article ul {
+		margin: 1rem 0;
+		padding-left: 2rem;
+	}
+
+	article li {
+		margin-bottom: 0.5rem;
+		list-style-type: disc;
+	}
+
+	/* Media queries para tablets y desktop */
+	@media (min-width: 768px) {
+		.contacto-container {
+			margin-left: 50%;
+			border-top: 2px solid var(--accent);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.contacto-container {
+			margin-left: 0;
+			border-top: 2px solid var(--accent);
+		}
+
+		article {
+			font-size: 1rem;
+		}
+	}
+</style>
