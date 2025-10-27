@@ -1,0 +1,161 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Menu from '../../components/Menu.astro';
+
+const title = 'Distribución';
+const description = 'Encuentra nuestros libros en librerías y puntos de venta en España, México y Argentina.';
+
+const distributionPoints = [
+	{
+		country: 'España',
+		bookstore: 'Librería Cervantes',
+		contact: {
+			email: 'info@cervantes.es',
+			phone: '+34 912 345 678',
+			address: 'Calle Gran Vía 39, Madrid'
+		}
+	},
+	{
+		country: 'México',
+		bookstore: 'Librería Porrúa',
+		contact: {
+			email: 'contacto@porrua.mx',
+			phone: '+52 55 1234 5678',
+			address: 'Av. Insurgentes Sur 954, CDMX'
+		}
+	},
+	{
+		country: 'Argentina',
+		bookstore: 'El Ateneo Grand Splendid',
+		contact: {
+			email: 'info@elateneo.com',
+			phone: '+54 11 4813-6052',
+			address: 'Av. Santa Fe 1860, Buenos Aires'
+		}
+	}
+];
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Menu />
+		<main class="distribucion-container">
+			<div class="distribucion-content">
+				<div class="distribution-list">
+					<div class="distribution-header">
+						<span>País</span>
+						<span>Librería / Punto de Venta</span>
+						<span>Contacto</span>
+					</div>
+					{distributionPoints.map(point => (
+						<div class="distribution-item">
+							<span data-label="País: ">{point.country}</span>
+							<span data-label="Librería: ">{point.bookstore}</span>
+							<span data-label="Contacto: ">
+								<a href={`mailto:${point.contact.email}`}>{point.contact.email}</a><br>
+								{point.contact.phone}<br>
+								{point.contact.address}
+							</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.distribucion-container {
+		margin-left: 50%;
+		min-height: 100vh;
+		border-top: 2px solid #d05240;
+		padding: 2rem;
+		background: #d05240;
+	}
+
+	.distribucion-content {
+		width: 100%;
+		max-width: 1000px;
+	}
+
+	.distribution-list {
+		width: 100%;
+		border: 1px solid #000;
+		background: #fff;
+	}
+
+	.distribution-header,
+	.distribution-item {
+		display: grid;
+		grid-template-columns: 1fr 2fr 2fr;
+		padding: 1rem;
+	}
+
+	.distribution-header {
+		background-color: #d05240;
+		color: white;
+		font-weight: bold;
+	}
+
+	.distribution-item {
+		border-bottom: 1px solid #000;
+	}
+
+	.distribution-item:last-child {
+		border-bottom: none;
+	}
+
+	.distribution-item span {
+		padding: 0.5rem;
+	}
+
+	.distribution-item a {
+		color: #d05240;
+		text-decoration: none;
+	}
+
+	.distribution-item a:hover {
+		text-decoration: underline;
+	}
+
+	/* Media queries para tablets y desktop */
+	@media (min-width: 768px) {
+		.distribucion-container {
+			margin-left: 50%;
+			border-top: 2px solid var(--accent);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.distribucion-container {
+			margin-left: 0;
+			border-top: 2px solid var(--accent);
+		}
+
+		.distribution-header,
+		.distribution-item {
+			grid-template-columns: 1fr;
+		}
+
+		.distribution-header {
+			display: none;
+		}
+
+		.distribution-item span {
+			padding: 0.25rem;
+		}
+
+		.distribution-item span:before {
+			content: attr(data-label);
+			font-weight: bold;
+			display: inline-block;
+			width: 100%;
+		}
+	}
+</style>

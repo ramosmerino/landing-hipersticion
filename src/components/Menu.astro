@@ -1,0 +1,238 @@
+---
+---
+
+<section class="menu">
+    <h1 class="title">HIPERSTICIÓN</h1>
+    <h1 class="title title-hover" id="hoverTitle"></h1>
+    <div class="logo">
+        <a href="/" class="menu-item logo-item--inicio" data-hover-text="INICIO">
+            <svg viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="logo-button" cx="60" cy="60" r="55"/>
+            </svg>
+            <strong>INICIO</strong>
+        </a>
+        <a href="/catalogo" class="menu-item logo-item--catalogo" data-hover-text="CATÁLOGO">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 5 109 109">
+                <path class="logo-button" d="M0 10h100v100H0z"/>
+            </svg>
+            <strong>CATÁLOGO</strong>
+        </a>
+        <a href="/proyecto" class="menu-item logo-item--proyecto" data-hover-text="PROYECTO">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 109">
+                <path class="logo-button" d="M54 111 3 5h103z"/>
+            </svg>
+            <strong>PROYECTO</strong>
+        </a>
+        <a href="/distribucion" class="menu-item logo-item--distribucion" data-hover-text="DISTRIBUCIÓN">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 5 109 109">
+                <path class="logo-button" d="m54 10 52 101H3z"/>
+            </svg>
+            <strong>DISTRIBUCIÓN</strong>
+        </a>
+        <a href="/blog" class="menu-item logo-item--blog" data-hover-text="BLOG">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 109">
+                <path class="logo-button" d="M54 10 3 48l20 60h63l20-63z"/>
+            </svg>
+            <strong>BLOG</strong>
+        </a>
+    </div>
+</section>
+
+<style>
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        z-index: 999;
+        background: var(--accent-dark);
+        height: 100vh;
+        padding: 2rem 1rem;
+    }
+
+    h1.title {
+        font-size: 3rem;
+        text-align: right;
+        margin: 5px 25px;
+        font-family: "Space Grotesk", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        transition: opacity 0.3s ease;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+
+    .title {
+        font-family: "Space Grotesk", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        transition: opacity 0.3s ease;
+    }
+
+    .title-hover {
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .logo a {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--accent);
+        text-decoration: none;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .logo a svg {
+        width: 32px;
+        height: auto;
+        margin: 5px;
+    }
+
+    .logo-button {
+        fill: var(--accent);
+        stroke: var(--accent);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 4;
+        transition: all 0.3s ease;
+    }
+
+    .logo text {
+        font-size: 14px;
+        fill: rgb(var(--gray-dark));
+        text-anchor: middle;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .logo a strong {
+        color: rgb(var(--black));
+        text-decoration: none;
+        margin-right: 5px;
+        font-weight: 500;
+    }
+
+    .logo a:hover .logo-button {
+        fill: var(--accent-light);
+    }
+
+    /* Media queries para tablets y desktop */
+    @media (min-width: 768px) {
+        .menu {
+            position: fixed;
+            top: 33%;
+            width: 50%;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            background: transparent;
+            height: auto;
+            transform: translateY(-50%);
+        }
+
+        .logo {
+            width: auto;
+            height: 120px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .logo a {
+            width: 109px;
+            height: 120px;
+            margin-right: 10px;
+            display: inline-block;
+            position: relative;
+            border: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+
+        .logo a svg {
+            position: relative;
+            width: auto;
+            z-index: 1;
+        }
+
+        .logo a strong {
+            display: none;
+        }
+
+        .logo-item--distribucion {
+            margin-left: -25px;
+        }
+
+        .logo a:hover .logo-button {
+            fill: var(--accent-light);
+        }
+
+        h1.title {
+            font-size: 3rem;
+            margin: 0;
+            writing-mode: horizontal-tb;
+            text-orientation: initial;
+        }
+    }
+</style>
+
+<script>
+    const originalTitle = document.querySelector('.title');
+    const hoverTitle = document.getElementById('hoverTitle');
+    const logoItems = document.querySelectorAll('.logo a');
+
+    let currentAnimation = null;
+
+    function typeWriter(el, text, i) {
+        if (i < text.length) {
+            el.textContent = text.substring(0, i + 1);
+            currentAnimation = requestAnimationFrame(() => {
+                currentAnimation = setTimeout(() => typeWriter(el, text, i + 1), 50);
+            });
+        }
+    }
+
+    function cancelAnimation() {
+        if (currentAnimation) {
+            cancelAnimationFrame(currentAnimation);
+            clearTimeout(currentAnimation);
+            currentAnimation = null;
+        }
+    }
+
+    logoItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            cancelAnimation();
+            originalTitle.style.opacity = '0';
+            hoverTitle.textContent = '';
+            typeWriter(hoverTitle, item.getAttribute('data-hover-text'), 0);
+            hoverTitle.style.opacity = '1';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            cancelAnimation();
+            originalTitle.style.opacity = '1';
+            hoverTitle.style.opacity = '0';
+        });
+    });
+</script>

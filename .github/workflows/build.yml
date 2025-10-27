@@ -1,4 +1,4 @@
-name: build 11ty site
+name: build astro site
 
 on:
   push:
@@ -20,11 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
       - name: Install dependencies & build
         run: |
-          npm install
-          npx @11ty/eleventy --pathprefix landing-hipersticion
+          npm ci
+          npm run build
       - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
 
   deploy:
     runs-on: ubuntu-latest

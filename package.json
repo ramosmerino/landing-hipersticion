@@ -1,24 +1,18 @@
 {
-  "name": "landing-hipersticion",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "extraterrestrial-eclipse",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve",
-    "debug": "DEBUG=* npx @11ty/eleventy"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "eleventy-plugin-gen-favicons": "^1.1.3"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "^5.0.0",
-    "@11ty/eleventy-plugin-rss": "^2.0.2",
-    "luxon": "^3.7.2"
-  },
-  "type": "module"
+    "@astrojs/mdx": "^4.3.8",
+    "@astrojs/rss": "^4.0.13",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.15.1",
+    "sharp": "^0.34.3"
+  }
 }
