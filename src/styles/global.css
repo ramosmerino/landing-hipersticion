@@ -34,11 +34,8 @@ html {
     padding: 0;
     height: 100%;
     font-family: "Space Grotesk", sans-serif;
-    background: linear-gradient(to right, var(--accent-light), #f6e0d0), url(/img/noise.svg);
+    background: linear-gradient(to right, var(--accent-light), #f6e0d0);
     min-height: 100%;
-    animation: bganimation 5s ease infinite;
-    background-size: 400% 400%, 100px 100px;
-    background-repeat: no-repeat, repeat;
 }
 
 .container {
