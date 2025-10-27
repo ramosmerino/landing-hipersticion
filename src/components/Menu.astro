@@ -199,7 +199,7 @@
 </style>
 
 <script>
-    const originalTitle = document.querySelector('.title');
+    const originalTitle = document.querySelector('.title') as HTMLElement;
     const hoverTitle = document.getElementById('hoverTitle');
     const logoItems = document.querySelectorAll('.logo a');
 
@@ -221,6 +221,29 @@
             currentAnimation = null;
         }
     }
+
+    // Function to update title based on screen size
+    function updateTitleForScreenSize() {
+        // Only apply responsive behavior on the home page (/)
+        if (window.location.pathname === '/') {
+            if (window.innerWidth >= 768) {
+                // Desktop on home page: show "INICIO"
+                originalTitle.textContent = 'INICIO';
+            } else {
+                // Mobile on home page: show "HIPERSTICIÓN"
+                originalTitle.textContent = 'HIPERSTICIÓN';
+            }
+        } else {
+            // On other pages: always show "HIPERSTICIÓN"
+            originalTitle.textContent = 'HIPERSTICIÓN';
+        }
+    }
+
+    // Set initial title based on screen size
+    updateTitleForScreenSize();
+
+    // Update title when window is resized
+    window.addEventListener('resize', updateTitleForScreenSize);
 
     logoItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
