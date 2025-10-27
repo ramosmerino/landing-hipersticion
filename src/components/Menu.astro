@@ -45,8 +45,7 @@
         align-items: center;
         flex-direction: column;
         z-index: 999;
-        background: var(--accent-dark);
-        height: 100vh;
+        background: var(--white);
         padding: 2rem 1rem;
     }
 
@@ -59,8 +58,7 @@
         font-weight: 500;
         font-style: normal;
         transition: opacity 0.3s ease;
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
+        background: var(--accent-light);
     }
 
     .title {
@@ -132,6 +130,10 @@
 
     /* Media queries para tablets y desktop */
     @media (min-width: 768px) {
+
+        h1.title {
+            background: none;
+        }
         .menu {
             position: fixed;
             top: 33%;
