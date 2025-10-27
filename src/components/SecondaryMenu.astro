@@ -1,0 +1,133 @@
+<div class="secondary-menu" id="secondaryMenu">
+    <header>
+    <h1 class="title">HIPERSTICIÓN</h1>
+    <h2 class="subtitle">Editando el futuro</h2>
+    </header>
+    <div class="secondary-logo">
+        <a
+            href="/"
+            class="secondary-item logo-item--inicio"
+            data-hover-text="INICIO"
+        >
+            <svg
+                viewBox="0 0 120 120"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <circle class="secondary-button" cx="60" cy="60" r="55"
+                ></circle>
+            </svg>
+            <strong>INICIO</strong>
+        </a>
+        <a
+            href="/catalogo"
+            class="secondary-item logo-item--catalogo"
+            data-hover-text="CATÁLOGO"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 5 109 109">
+                <path class="secondary-button" d="M0 10h100v100H0z"></path>
+            </svg>
+            <strong>CATÁLOGO</strong>
+        </a>
+        <a
+            href="/proyecto"
+            class="secondary-item logo-item--proyecto"
+            data-hover-text="PROYECTO"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 109">
+                <path class="secondary-button" d="M54 111 3 5h103z"></path>
+            </svg>
+            <strong>PROYECTO</strong>
+        </a>
+        <a
+            href="/distribucion"
+            class="secondary-item logo-item--distribucion"
+            data-hover-text="DISTRIBUCIÓN"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 5 109 109">
+                <path class="secondary-button" d="m54 10 52 101H3z"></path>
+            </svg>
+            <strong>DISTRIBUCIÓN</strong>
+        </a>
+        <a
+            href="/blog"
+            class="secondary-item logo-item--blog"
+            data-hover-text="BLOG"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 109">
+                <path class="secondary-button" d="M54 10 3 48l20 60h63l20-63z"
+                ></path>
+            </svg>
+            <strong>BLOG</strong>
+        </a>
+    </div>
+</div>
+<style>
+    .secondary-menu {
+        display: none;
+    }
+
+    	/* Media queries para tablets y desktop */
+	@media (min-width: 768px) {
+        header {
+            display: block;
+            position: fixed;
+            top: 0;
+            text-align: center;
+        }
+
+        header h2 {
+            font-size: 1rem;
+        }
+
+        svg {
+            width: 32px;
+            height: auto;
+        }
+        .secondary-menu {
+            background-color: var(--white);
+            width: 50vw;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .secondary-logo {
+            width: 100%;
+            max-width: 300px;
+        }
+        a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            background-color: var(--accent-light);
+            transform: translateX(-5px);
+            border-left: 3px solid var(--accent);
+        }
+        a:last-child {
+            border-bottom: none;
+        }
+		.secondary-item:hover .secondary-button {
+			fill: var(--accent);
+		}
+
+		.secondary-item.hovered .secondary-button {
+			fill: var(--accent);
+		}
+
+		.menu .logo a.hovered .logo-button {
+			fill: var(--accent-light);
+		}
+    }
+</style>

@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Menu from '../components/Menu.astro';
+import SecondaryMenu from '../components/SecondaryMenu.astro';
 
 const title = 'Inicio';
 const description = 'Hiperstición - Editorial cooperativa autogestionada dedicada a la reflexión filosófica y la difusión de nuevas ideas.';
@@ -19,12 +20,16 @@ const description = 'Hiperstición - Editorial cooperativa autogestionada dedica
 				<img src="/img/burkes-dither-silla.png" alt="Silla CyberSyn" class="silla" loading="eager">
 			</div>
 			<section class="inicio">
-				<h1 class="title">HIPERSTICIÓN</h1>
+				<SecondaryMenu />
 			</section>
 		</div>
 		<Footer />
 	</body>
 </html>
+
+<!-- SVG overlay for connecting lines -->
+<svg id="connection-lines" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;">
+</svg>
 
 <style>
 	.inicio-container {
@@ -77,23 +82,36 @@ const description = 'Hiperstición - Editorial cooperativa autogestionada dedica
 			width: 50%;
 			height: 100vh;
 			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex-direction: row;
+			justify-content: center;
+			align-items: flex-start;
+			flex-direction: column;
 			padding: 0 20px;
-			margin-left: 50%;
+			margin-left: 25%;
+			position: relative;
+			z-index: 2;
 		}
 
-		.title {
-			font-family: "Space Grotesk", sans-serif;
-			font-size: 4rem;
-			font-weight: 500;
-			text-align: center;
-			color: var(--accent);
-			writing-mode: vertical-rl;
-			text-orientation: mixed;
-			transform: rotate(180deg);
-			margin: 0;
+		/* Main menu hover synchronization */
+		.menu .logo a.hovered .logo-button {
+			fill: var(--accent-light);
+		}
+
+		/* Connecting line animations */
+		@keyframes pulse {
+			0%, 100% {
+				stroke-width: 2.5;
+				filter: drop-shadow(0 0 4px rgba(208, 82, 64, 0.4));
+			}
+			50% {
+				stroke-width: 3;
+				filter: drop-shadow(0 0 6px rgba(208, 82, 64, 0.6));
+			}
+		}
+
+		@keyframes fadeOut {
+			to {
+				opacity: 0;
+			}
 		}
 	}
 
@@ -110,9 +128,328 @@ const description = 'Hiperstición - Editorial cooperativa autogestionada dedica
 			width: 100%;
 			height: auto;
 		}
-
-		.title {
-			display: none;
-		}
 	}
 </style>
+
+<script>
+	// Hover synchronization between main menu and secondary menu
+	document.addEventListener('DOMContentLoaded', function() {
+		// Get menu items from both menus
+		const mainMenuItems = document.querySelectorAll('.menu .logo a');
+		const secondaryMenuItems = document.querySelectorAll('.secondary-item');
+
+		// Get main menu elements for title effect
+		const originalTitle = document.querySelector('.menu .title') as HTMLElement;
+		const hoverTitle = document.querySelector('.menu .title-hover') as HTMLElement;
+		let currentAnimation: number | null = null;
+
+		// Function to trigger main menu hover effect
+		function triggerMainMenuHover(item: Element) {
+			if (originalTitle && hoverTitle) {
+				// Cancel any existing animation
+				if (currentAnimation) {
+					cancelAnimationFrame(currentAnimation);
+					clearTimeout(currentAnimation);
+					currentAnimation = null;
+				}
+
+				// Trigger the hover effect
+				originalTitle.style.opacity = '0';
+				hoverTitle.textContent = '';
+				typeWriter(hoverTitle, item.getAttribute('data-hover-text') || '', 0);
+				hoverTitle.style.opacity = '1';
+			}
+		}
+
+		// Function to reset main menu hover effect
+		function resetMainMenuHover() {
+			if (originalTitle && hoverTitle) {
+				// Cancel any existing animation
+				if (currentAnimation) {
+					cancelAnimationFrame(currentAnimation);
+					clearTimeout(currentAnimation);
+					currentAnimation = null;
+				}
+
+				// Reset the hover effect
+				originalTitle.style.opacity = '1';
+				hoverTitle.style.opacity = '0';
+			}
+		}
+
+		// Typewriter function (from main menu)
+		function typeWriter(el: HTMLElement, text: string, i: number) {
+			if (i < text.length) {
+				el.textContent = text.substring(0, i + 1);
+				currentAnimation = requestAnimationFrame(() => {
+					currentAnimation = setTimeout(() => typeWriter(el, text, i + 1), 50) || null;
+				});
+			}
+		}
+
+		// Function to get corresponding items between menus
+		function getCorrespondingItem(item: Element, sourceMenu: string) {
+			const href = item.getAttribute('href');
+			if (sourceMenu === 'main') {
+				return Array.from(secondaryMenuItems).find(secItem => secItem.getAttribute('href') === href);
+			} else {
+				return Array.from(mainMenuItems).find(mainItem => mainItem.getAttribute('href') === href);
+			}
+		}
+
+		// Add hover synchronization to main menu items
+		mainMenuItems.forEach(mainItem => {
+			mainItem.addEventListener('mouseenter', function() {
+				const correspondingSecondary = getCorrespondingItem(this, 'main');
+				if (correspondingSecondary) {
+					correspondingSecondary.classList.add('hovered');
+				}
+			});
+
+			mainItem.addEventListener('mouseleave', function() {
+				const correspondingSecondary = getCorrespondingItem(this, 'main');
+				if (correspondingSecondary) {
+					correspondingSecondary.classList.remove('hovered');
+				}
+			});
+		});
+
+		// Add hover synchronization to secondary menu items
+		secondaryMenuItems.forEach(secondaryItem => {
+			secondaryItem.addEventListener('mouseenter', function() {
+				const correspondingMain = getCorrespondingItem(this, 'secondary');
+				if (correspondingMain) {
+					correspondingMain.classList.add('hovered');
+					// Also trigger the main menu title effect
+					triggerMainMenuHover(this);
+				}
+			});
+
+			secondaryItem.addEventListener('mouseleave', function() {
+				const correspondingMain = getCorrespondingItem(this, 'secondary');
+				if (correspondingMain) {
+					correspondingMain.classList.remove('hovered');
+					// Also reset the main menu title effect
+					resetMainMenuHover();
+				}
+			});
+		});
+	});
+</script>
+
+<script>
+	// Connecting lines between corresponding menu items
+	document.addEventListener('DOMContentLoaded', function() {
+		// Wait a bit for all components to be rendered
+		setTimeout(function() {
+			const svg = document.getElementById('connection-lines');
+			const mainMenuItems = document.querySelectorAll('.menu .logo a');
+			const secondaryMenuItems = document.querySelectorAll('.secondary-item');
+
+			console.log('SVG element:', svg);
+			console.log('Main menu items found:', mainMenuItems.length);
+			console.log('Secondary menu items found:', secondaryMenuItems.length);
+
+			if (!svg || mainMenuItems.length === 0 || secondaryMenuItems.length === 0) {
+				console.error('Required elements not found:', {
+					svg: !!svg,
+					mainMenuItems: mainMenuItems.length,
+					secondaryMenuItems: secondaryMenuItems.length
+				});
+				return;
+			}
+
+			let currentLine: { path: SVGElement; corner?: SVGElement; dot: SVGElement } | null = null;
+
+			// Function to get SVG icon center position
+			function getIconCenter(element) {
+				// For main menu items, target the SVG path with class .logo-button
+				let icon = element.querySelector('.logo-button');
+				if (!icon) {
+					// For secondary menu items, target the SVG path with class .secondary-button
+					icon = element.querySelector('.secondary-button');
+				}
+				if (!icon) {
+					// Fallback to any SVG in the element
+					icon = element.querySelector('svg');
+				}
+				if (!icon) {
+					// Final fallback to the element itself
+					icon = element;
+				}
+
+				console.log('Icon found for element:', element.href || element, icon);
+				const rect = icon.getBoundingClientRect();
+				return {
+					x: rect.left + rect.width / 2,
+					y: rect.top + rect.height / 2
+				};
+			}
+
+			// Function to get corresponding item between menus
+			function getCorrespondingItem(item, sourceMenu) {
+				const href = item.getAttribute('href');
+				console.log('Looking for corresponding item for:', href, 'from', sourceMenu);
+
+				if (sourceMenu === 'main') {
+					return Array.from(secondaryMenuItems).find(secItem => {
+						const secHref = secItem.getAttribute('href');
+						console.log('Comparing main href', href, 'with secondary href', secHref);
+						return secHref === href;
+					});
+				} else {
+					return Array.from(mainMenuItems).find(mainItem => {
+						const mainHref = mainItem.getAttribute('href');
+						console.log('Comparing secondary href', href, 'with main href', mainHref);
+						return mainHref === href;
+					});
+				}
+			}
+
+			// Function to create connecting line with horizontal/vertical segments and rounded corners
+			function createConnectingLine(startPos, endPos) {
+				// Remove existing line
+				if (currentLine) {
+					if (currentLine.path) {
+						svg!.removeChild(currentLine.path);
+					}
+					if (currentLine.corner) {
+						svg!.removeChild(currentLine.corner);
+					}
+					if (currentLine.dot) {
+						svg!.removeChild(currentLine.dot);
+					}
+				}
+
+				console.log('Creating Manhattan-style line between:', startPos, 'and', endPos);
+
+				// Calculate midpoint for the 90-degree turn (closer to the center of the screen)
+				const turnPointX = startPos.x + (endPos.x - startPos.x) * 0.6;
+				const turnPointY = startPos.y + (endPos.y - startPos.y) * 0.4;
+
+				// Create path with horizontal-vertical-horizontal segments and rounded corners
+				const pathData = `M ${startPos.x} ${startPos.y}
+								L ${turnPointX} ${startPos.y}
+								L ${turnPointX} ${turnPointY}
+								L ${endPos.x} ${endPos.y}`;
+
+				// Create path element with Manhattan-style routing
+				const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				path.setAttribute('d', pathData);
+				path.setAttribute('stroke', '#d05240');
+				path.setAttribute('stroke-width', '2.5');
+				path.setAttribute('fill', 'none');
+				path.setAttribute('stroke-linecap', 'round');
+				path.setAttribute('stroke-linejoin', 'round');
+				path.setAttribute('opacity', '1');
+				path.style.filter = 'drop-shadow(0 0 4px rgba(208, 82, 64, 0.4))';
+				path.style.animation = 'pulse 2s infinite';
+
+				svg!.appendChild(path);
+
+				// Add a small corner indicator at the 90-degree turn
+				const cornerDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+				cornerDot.setAttribute('cx', turnPointX.toString());
+				cornerDot.setAttribute('cy', turnPointY.toString());
+				cornerDot.setAttribute('r', '2');
+				cornerDot.setAttribute('fill', '#d05240');
+				cornerDot.setAttribute('opacity', '0.6');
+				cornerDot.style.filter = 'drop-shadow(0 0 1px rgba(208, 82, 64, 0.4))';
+
+				svg!.appendChild(cornerDot);
+
+				// Add a small connection dot at the end
+				const connectionDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+				connectionDot.setAttribute('cx', endPos.x.toString());
+				connectionDot.setAttribute('cy', endPos.y.toString());
+				connectionDot.setAttribute('r', '3');
+				connectionDot.setAttribute('fill', '#d05240');
+				connectionDot.setAttribute('opacity', '0.8');
+				connectionDot.style.filter = 'drop-shadow(0 0 2px rgba(208, 82, 64, 0.6))';
+				connectionDot.style.animation = 'pulse 2s infinite';
+
+				svg!.appendChild(connectionDot);
+
+				currentLine = { path, corner: cornerDot, dot: connectionDot };
+
+				console.log('Manhattan-style line with connection dot created and added to SVG');
+			}
+
+			// Function to remove connecting line
+			function removeConnectingLine() {
+				if (currentLine && svg) {
+					console.log('Removing line');
+					if (currentLine.path) {
+						svg.removeChild(currentLine.path);
+					}
+					if (currentLine.corner) {
+						svg.removeChild(currentLine.corner);
+					}
+					if (currentLine.dot) {
+						svg.removeChild(currentLine.dot);
+					}
+					currentLine = null;
+				}
+			}
+
+			// Add hover events to main menu items
+			mainMenuItems.forEach(mainItem => {
+				mainItem.addEventListener('mouseenter', function() {
+					console.log('Main menu hover:', this.href); // Debug info
+					const correspondingSecondary = getCorrespondingItem(this, 'main');
+					if (correspondingSecondary) {
+						const mainPos = getIconCenter(this);
+						const secondaryPos = getIconCenter(correspondingSecondary);
+						console.log('Creating line from main to secondary:', { mainPos, secondaryPos });
+						createConnectingLine(mainPos, secondaryPos);
+					} else {
+						console.log('No corresponding secondary item found');
+					}
+				});
+
+				mainItem.addEventListener('mouseleave', function() {
+					console.log('Main menu leave:', this.href); // Debug info
+					removeConnectingLine();
+				});
+			});
+
+			// Add hover events to secondary menu items
+			secondaryMenuItems.forEach(secondaryItem => {
+				secondaryItem.addEventListener('mouseenter', function() {
+					console.log('Secondary menu hover:', this.href); // Debug info
+					const correspondingMain = getCorrespondingItem(this, 'secondary');
+					if (correspondingMain) {
+						const mainPos = getIconCenter(correspondingMain);
+						const secondaryPos = getIconCenter(this);
+						console.log('Creating line from secondary to main:', { mainPos, secondaryPos });
+						// Always draw from left to right (main to secondary)
+						createConnectingLine(mainPos, secondaryPos);
+					} else {
+						console.log('No corresponding main item found');
+					}
+				});
+
+				secondaryItem.addEventListener('mouseleave', function() {
+					console.log('Secondary menu leave:', this.href); // Debug info
+					removeConnectingLine();
+				});
+			});
+
+			console.log('Found elements:', {
+				mainMenuItems: mainMenuItems.length,
+				secondaryMenuItems: secondaryMenuItems.length,
+				svg: !!svg
+			});
+
+			// Test: Add a visible circle to verify SVG is working
+			const testCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+			testCircle.setAttribute('cx', '50');
+			testCircle.setAttribute('cy', '50');
+			testCircle.setAttribute('r', '5');
+			testCircle.setAttribute('fill', '#00ff00');
+			testCircle.setAttribute('opacity', '0.3');
+			svg!.appendChild(testCircle);
+			console.log('Test circle added to SVG');
+		}, 100); // Wait 100ms for components to render
+	});
+</script>
