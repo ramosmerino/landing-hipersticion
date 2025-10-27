@@ -8,6 +8,7 @@ const books = defineCollection({
     author: z.string(),
     description: z.string(),
     cover: z.string(),
+    slug: z.string(),
     links: z.array(z.string()).optional().nullable(),
     tags: z.array(z.string()).optional().nullable(),
     translators: z.array(z.string()).optional().nullable(),

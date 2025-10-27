@@ -1,0 +1,298 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Menu from '../../components/Menu.astro';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+
+  return books.map((book) => {
+    return {
+      params: { slug: book.data.slug },
+      props: { book }
+    };
+  });
+}
+
+const { book } = Astro.props;
+
+const title = `${book.data.title} - Catálogo`;
+const description = `Información detallada sobre "${book.data.title}" de ${book.data.author}. ${book.data.description.substring(0, 150)}...`;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Menu />
+		<main class="book-detail-container">
+			<div class="book-detail-content">
+				<div class="book-header">
+					<a href="/catalogo" class="back-link">← Volver al catálogo</a>
+					<div class="book-meta">
+						{book.data.pubDate && (
+							<span class="book-date">{book.data.pubDate.getFullYear()}</span>
+						)}
+						{book.data.edition && (
+							<span class="book-edition">Edición: {book.data.edition}</span>
+						)}
+					</div>
+				</div>
+
+				<div class="book-layout">
+					<div class="book-cover-section">
+						<img src={book.data.cover} alt={`Portada de ${book.data.title}`} class="book-cover-large">
+						{book.data.links && book.data.links.length > 0 && (
+							<div class="book-links">
+								<h3>Enlaces</h3>
+								<ul>
+									{book.data.links.map((link, index) => (
+										<li>
+											<a href={link} target="_blank" rel="noopener noreferrer">
+												{link}
+											</a>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
+					</div>
+
+					<div class="book-info-section">
+						<h1 class="book-title">{book.data.title}</h1>
+						<h2 class="book-author">por {book.data.author}</h2>
+
+						{book.data.translators && book.data.translators.length > 0 && (
+							<div class="book-translators">
+								<strong>Traducción:</strong> {book.data.translators.join(', ')}
+							</div>
+						)}
+
+						<div class="book-description" set:html={book.data.description}></div>
+
+						{book.data.tags && book.data.tags.length > 0 && (
+							<div class="book-tags">
+								<strong>Etiquetas:</strong>
+								<ul>
+									{book.data.tags.map((tag, index) => (
+										<li class="tag">{tag}</li>
+									))}
+								</ul>
+							</div>
+						)}
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.book-detail-container {
+		margin-left: 50%;
+		min-height: 100vh;
+		border-top: 2px solid var(--accent);
+	}
+
+	.book-detail-content {
+		width: 100%;
+		padding: 2rem;
+	}
+
+	.book-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--gray);
+	}
+
+	.back-link {
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 1.1rem;
+		transition: color 0.3s ease;
+	}
+
+	.back-link:hover {
+		color: var(--accent-dark);
+		text-decoration: underline;
+	}
+
+	.book-meta {
+		display: flex;
+		gap: 1rem;
+		font-size: 0.9rem;
+		color: var(--gray-dark);
+	}
+
+	.book-layout {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.book-cover-section {
+		text-align: center;
+	}
+
+	.book-cover-large {
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+		border: 2px solid var(--black);
+		box-shadow: var(--box-shadow);
+		margin-bottom: 2rem;
+	}
+
+	.book-links {
+		margin-top: 2rem;
+	}
+
+	.book-links h3 {
+		font-size: 1.2rem;
+		margin-bottom: 1rem;
+		color: var(--black);
+	}
+
+	.book-links ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.book-links li {
+		margin-bottom: 0.5rem;
+	}
+
+	.book-links a {
+		color: var(--accent);
+		text-decoration: none;
+		word-break: break-all;
+		font-size: 0.9rem;
+	}
+
+	.book-links a:hover {
+		text-decoration: underline;
+	}
+
+	.book-info-section {
+		max-width: 600px;
+	}
+
+	.book-title {
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+		color: var(--black);
+		line-height: 1.2;
+		font-family: var(--base-font);
+	}
+
+	.book-author {
+		font-size: 1.5rem;
+		color: var(--gray-dark);
+		margin-bottom: 1.5rem;
+		font-weight: 400;
+		font-style: italic;
+	}
+
+	.book-translators {
+		margin-bottom: 1.5rem;
+		font-size: 1.1rem;
+		color: var(--gray-dark);
+	}
+
+	.book-description {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		margin-bottom: 2rem;
+		text-align: justify;
+	}
+
+	.book-description a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.book-description a:hover {
+		text-decoration: underline;
+	}
+
+	.book-tags {
+		margin-top: 2rem;
+	}
+
+	.book-tags strong {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-size: 1.1rem;
+		color: var(--black);
+	}
+
+	.book-tags ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.tag {
+		background: var(--accent-light);
+		color: var(--accent-dark);
+		padding: 0.3rem 0.8rem;
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		border: 1px solid var(--accent);
+	}
+
+	/* Responsive design */
+	@media (max-width: 768px) {
+		.book-detail-container {
+			margin-left: 0;
+			border-top: 2px solid var(--accent);
+		}
+
+		.book-detail-content {
+			padding: 1rem;
+		}
+
+		.book-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		.book-layout {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.book-title {
+			font-size: 2rem;
+		}
+
+		.book-author {
+			font-size: 1.3rem;
+		}
+
+		.book-cover-large {
+			max-width: 250px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.book-detail-content {
+			padding: 2rem 0 100px 2rem;
+		}
+	}
+</style>

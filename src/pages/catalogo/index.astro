@@ -21,9 +21,9 @@ const books = await getCollection('books');
 			<div class="catalogo-content">
 				<div class="book-grid">
 					{books.map((book) => (
-							<div class="book-item">
-							<img src={book.data.cover} alt="Portada de Noche" class="book-cover">
-							<h2 class="book-title">{book.data.title}</h2>
+						<div class="book-item">
+							<img src={book.data.cover} alt={`Portada de ${book.data.title}`} class="book-cover">
+							<h2 class="book-title"><a href={`/catalogo/${book.data.slug}`}>{book.data.title}</a></h2>
 							<p class="book-author">{book.data.author}</p>
 							<p class="book-description" set:html={book.data.description}></p>
 						</div>
@@ -73,6 +73,15 @@ const books = await getCollection('books');
 				font-size: 1.2rem;
 				margin: 1rem 0 0.5rem;
 				padding: 0 1rem;
+			}
+
+			.book-title a {
+				text-decoration: none;
+				color: var(--black);
+			}
+
+			.book-title a:hover {
+				text-decoration: underline;
 			}
 
 			.book-author {
