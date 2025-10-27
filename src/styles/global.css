@@ -20,11 +20,12 @@
     --accent-dark: #b04230;
     --accent-light: #f6cdad;
     --white: #fff;
-    --black: 15, 18, 25;
-    --gray: 96, 115, 159;
-    --gray-dark: 34, 41, 57;
-    --gray-gradient: rgba(246, 205, 173, 0.5), #fff;
+    --black: #0f1219;
+    --gray: #60739F;
+    --gray-dark: #222939;
+    --gray-gradient: rgba(246, 205, 173, 0.5), var(--white);
     --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.15), 0 16px 32px rgba(0, 0, 0, 0.2);
+    --title-font: "Space Grotesk", sans-serif;
 }
 
 body,
@@ -33,7 +34,7 @@ html {
     padding: 0;
     height: 100%;
     font-family: "Space Grotesk", sans-serif;
-    background: linear-gradient(to right, #f6cdad, #f6e0d0), url(/img/noise.svg);
+    background: linear-gradient(to right, var(--accent-light), #f6e0d0), url(/img/noise.svg);
     min-height: 100%;
     animation: bganimation 5s ease infinite;
     background-size: 400% 400%, 100px 100px;
@@ -53,7 +54,7 @@ html {
 }
 
 a {
-    color: #d05240;
+    color: var(--accent);
     text-decoration: none;
 }
 
@@ -71,7 +72,7 @@ main {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0.5rem 0;
-    color: rgb(var(--black));
+    color: var(--black);
     line-height: 1.2;
     font-family: "Space Grotesk", sans-serif;
 }
@@ -112,19 +113,19 @@ img {
 
 /* Blog specific styles */
 article {
-    border: 1px solid #000;
+    border: 1px solid var(--black);
     margin-bottom: -1px;
     padding: 15px 20px;
-    background: #fff;
+    background: var(--white);
 }
 
 .blog-date {
     font-style: italic;
-    color: #666;
+    color: var(--gray-dark);
 }
 
 .blog-post {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 2rem;
     padding-bottom: 100px;
 }
@@ -154,7 +155,7 @@ article {
 
 @media (min-width: 768px) {
     .logo a:hover .logo-button {
-        fill: #f6cdad;
+        fill: var(--accent-light);
     }
 }
 

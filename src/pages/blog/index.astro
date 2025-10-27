@@ -26,7 +26,7 @@ const posts = (await getCollection('blog')).sort(
 
 			.blog-menu {
 				width: 50%;
-				background: #f5f5f5;
+				background: var(--gray-gradient);
 			}
 
 			.blog-content {
@@ -41,9 +41,9 @@ const posts = (await getCollection('blog')).sort(
 			}
 
 			.blog-preview {
-				background-color: #fff;
+				background-color: var(--white);
 				padding: 1.5rem;
-				border-bottom: 1px solid #ddd;
+				border-bottom: 1px solid var(--gray-dark);
 			}
 
 			.blog-preview h2 {
@@ -62,7 +62,7 @@ const posts = (await getCollection('blog')).sort(
 
 			.blog-date {
 				font-style: italic;
-				color: #666;
+				color: var(--gray-dark);
 				margin-bottom: 1rem;
 			}
 
