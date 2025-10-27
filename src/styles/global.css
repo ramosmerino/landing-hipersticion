@@ -27,7 +27,7 @@
   --box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.15),
     0 16px 32px rgba(0, 0, 0, 0.2);
-  --title-font: "Space Grotesk", sans-serif;
+  --base-font: "Space Grotesk", sans-serif;
 }
 
 body,
@@ -35,7 +35,7 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: var(--base-font);
   background: linear-gradient(to right, var(--accent-light), #f6e0d0);
   min-height: 100%;
 }
@@ -78,7 +78,7 @@ h6 {
   margin: 0 0 0.5rem 0;
   color: var(--black);
   line-height: 1.2;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: var(--base-font);
 }
 
 h1 {
