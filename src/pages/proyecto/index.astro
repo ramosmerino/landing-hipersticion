@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Menu from '../../components/Menu.astro';
+import sillaImage from '../../assets/silla-synco-dither.png';
 
 const title = 'Proyecto';
 const description = 'Hiperstición es una editorial cooperativa autogestionada dedicada a la reflexión filosófica y la difusión de nuevas ideas.';
@@ -10,7 +11,7 @@ const description = 'Hiperstición es una editorial cooperativa autogestionada d
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} image="/img/silla-synco-dither.png" />
+		<BaseHead title={title} description={description} image={sillaImage} />
 	</head>
 	<body>
 		<Menu />

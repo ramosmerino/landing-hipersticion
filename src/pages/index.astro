@@ -1,8 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Menu from '../components/Menu.astro';
 import SecondaryMenu from '../components/SecondaryMenu.astro';
+import sillaImage from '../assets/silla-synco-dither.png';
+import burkesImage from '../assets/burkes-dither-silla.png';
 
 const title = 'Inicio';
 const description = 'Hiperstición - Editorial cooperativa autogestionada dedicada a la reflexión filosófica y la difusión de nuevas ideas.';
@@ -11,13 +14,13 @@ const description = 'Hiperstición - Editorial cooperativa autogestionada dedica
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} image="/img/silla-synco-dither.png" />
+		<BaseHead title={title} description={description} image={sillaImage} />
 	</head>
 	<body>
 		<div class="inicio-container">
 			<div class="inicio-menu">
 				<Menu />
-				<img src="/img/burkes-dither-silla.png" alt="Silla CyberSyn" class="silla" loading="eager">
+				<Image src={burkesImage} alt="Silla CyberSyn" class="silla" loading="eager" />
 			</div>
 			<section class="inicio">
 				<SecondaryMenu />

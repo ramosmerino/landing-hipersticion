@@ -5,6 +5,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Menu from '../../components/Menu.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import burkesImage from '../../assets/burkes-dither-silla.png';
 
 const title = 'Blog';
 const description = 'Artículos y publicaciones de Hiperstición - Editorial cooperativa autogestionada.';
@@ -17,7 +18,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} image={posts.length > 0 && posts[0].data.heroImage ? posts[0].data.heroImage : "/img/burkes-dither-silla.png"} />
+		<BaseHead title={title} description={description} image={posts.length > 0 && posts[0].data.heroImage ? posts[0].data.heroImage : burkesImage} />
 		<style>
 			.blog-container {
 				display: flex;
