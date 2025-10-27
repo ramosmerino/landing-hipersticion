@@ -1,12 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
+const footerCollection = await getCollection('footer');
+const footerContent = footerCollection[0];
+
+const marqueeLinks = footerContent?.data?.marqueeLinks;
 ---
 
 <footer class="footer">
     <div class="marquee">
         <div class="marquee-content">
-            Nuevo lanzamiento: Noche, filosofía tras la oscuridad &nbsp;&nbsp;&nbsp;
-            Nuevo lanzamiento: Noche, filosofía tras la oscuridad &nbsp;&nbsp;&nbsp;
-            Nuevo lanzamiento: Noche, filosofía tras la oscuridad &nbsp;&nbsp;&nbsp;
+            {marqueeLinks?.map((link, index) => (
+                <>
+                      <a href={link.url} class="marquee-link">{link.text}</a>
+                      {index < marqueeLinks.length - 1 ? ' • ' : ' • Hiperstición, editando el futuro.'}
+                </>
+            ))}
         </div>
     </div>
     <div class="footer-info">
@@ -39,7 +47,7 @@
     .marquee-content {
         display: inline-block;
         white-space: nowrap;
-        animation: marquee 30s linear infinite;
+        animation: marquee 40s linear infinite;
         font-size: 1rem;
     }
 
@@ -77,6 +85,18 @@
 
     .buttons a:first-child {
         border-left: none;
+    }
+
+    .marquee-link {
+        color: var(--white);
+        text-decoration: none;
+        transition: text-decoration 0.2s ease;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .marquee-link:hover {
+        text-decoration: underline;
     }
 
     /* Media queries para tablets y desktop */
