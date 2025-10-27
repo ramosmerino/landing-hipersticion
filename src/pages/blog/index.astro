@@ -17,7 +17,7 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={posts.length > 0 && posts[0].data.heroImage ? posts[0].data.heroImage : "/img/burkes-dither-silla.png"} />
 		<style>
 			.blog-container {
 				display: flex;

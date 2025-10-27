@@ -13,7 +13,7 @@ const books = await getCollection('books');
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={books.length > 0 ? books[0].data.cover : undefined} />
 	</head>
 	<body>
 		<Menu />
