@@ -3,8 +3,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Menu from '../../components/Menu.astro';
 
-const title = 'Proyecto';
-const description = 'Hiperstición es una editorial cooperativa autogestionada dedicada a la reflexión filosófica y la difusión de nuevas ideas.';
+const title = 'Contacto';
+const description = 'Contacta con Editorial Hiperstición. Información sobre distribución, traducciones, colaboraciones y nuestro catálogo filosófico.';
 ---
 
 <!doctype html>
@@ -16,33 +16,47 @@ const description = 'Hiperstición es una editorial cooperativa autogestionada d
 		<Menu />
 		<main class="contacto-container">
 			<div class="contacto-content">
-				<article>
-					<p>
-						<strong>Hiperstición</strong> es una
-						<strong>editorial cooperativa autogestionada</strong>, fundada en el año 2022 en la infósfera de las plataformas
-						sociales, que por practicidad física gravitó a Santiago de Chile.
-					</p>
-					<p>
-						El catálogo invita a la reflexión de las nuevas filosofías, poniendo a disposición lecturas no disponibles antes en
-						español. Desde esta base, trazaremos un recorrido transversal y heterodoxo, donde las personas integrantes de la
-						cooperativa puedan publicar sus intereses colectivizados, sean ensayos, novelas, poesía y lo que nos permita generar
-						conexiones entre grupos diversos con teleologías compartidas.
-					</p>
-					<p>
-						Buscamos hipersticionar los futuros que nos fueron arrebatados, ya sea para vivir las utopías o para sobrevivir al
-						desierto.
-					</p>
-					<p>
-						<strong>Comisiones:</strong>
-						<ul>
-							<li>Comisión Diseño</li>
-							<li>Comisión Digital</li>
-							<li>Comisión Traducción</li>
-							<li>Comisión Administrativa</li>
-							<li>Comisión Imprenta</li>
-						</ul>
-					</p>
-				</article>
+				<section class="contact-section">
+					<h2>Contacto</h2>
+					<div class="contact-methods">
+						<div class="contact-method">
+							<h3>Información General</h3>
+							<p>Para consultas sobre nuestro catálogo, colaboraciones editoriales y proyectos conjuntos.</p>
+							<div class="contact-links">
+								<a href="mailto:editorial.hipersticion@gmail.com" class="contact-link email">
+									<span class="icon">✉</span>
+									editorial.hipersticion<span class="small">@gmail.com</span>
+								</a>
+								<a href="https://www.instagram.com/hipersticion.editorial/" target="_blank" rel="noopener" class="contact-link instagram">
+									<span class="icon">📷</span>
+									Instagram
+								</a>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<h3>Distribución y Librerías</h3>
+							<p>¿Quieres nuestros libros en tu librería? Consulta sobre distribución, puntos de venta y mayoristas.</p>
+							<div class="contact-links">
+								<a href="mailto:editorial.hipersticion@gmail.com?subject=Consulta%20Distribución" class="contact-link email">
+									<span class="icon">📚</span>
+									Distribución
+								</a>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<h3>Traducciones y Revisiones</h3>
+							<p>¿Buscas servicios de traducción, revisión o edición? Consulta por tu proyecto académico o editorial.</p>
+							<div class="contact-links">
+								<a href="mailto:editorial.hipersticion@gmail.com?subject=Consulta%20Traducciones%20y%20Revisiones" class="contact-link email">
+									<span class="icon">🌐</span>
+									Proyectos
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 		</main>
 		<Footer />
@@ -61,28 +75,131 @@ const description = 'Hiperstición es una editorial cooperativa autogestionada d
 		max-width: 800px;
 	}
 
-	article {
+	/* About Section */
+	.about-section {
+		margin-bottom: 3rem;
+	}
+
+	.about-section h1 {
+		font-size: 2.5rem;
+		color: var(--black);
+		margin-bottom: 2rem;
+		font-weight: 700;
+	}
+
+	.intro-content p {
 		font-size: 1.1rem;
 		line-height: 1.8;
-	}
-
-	article p {
 		margin-bottom: 1.5rem;
+		color: var(--gray-dark);
 	}
 
-	article strong {
+	.intro-content strong {
 		font-weight: 700;
 		color: var(--accent);
 	}
 
-	article ul {
-		margin: 1rem 0;
+	.commissions {
+		margin-top: 2rem;
+		padding: 1.5rem;
+		background: var(--white);
+		border: 1px solid var(--black);
+		border-radius: 4px;
+	}
+
+	.commissions h3 {
+		font-size: 1.3rem;
+		color: var(--accent);
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+
+	.commissions ul {
+		margin: 0;
 		padding-left: 2rem;
 	}
 
-	article li {
-		margin-bottom: 0.5rem;
+	.commissions li {
+		margin-bottom: 0.8rem;
 		list-style-type: disc;
+		font-size: 1rem;
+		color: var(--gray-dark);
+	}
+
+	.small {
+		font-size: .6rem;
+	}
+
+	/* Contact Section */
+	.contact-section h2 {
+		font-size: 2rem;
+		color: var(--black);
+		margin-bottom: 2rem;
+		font-weight: 700;
+		border-bottom: 2px solid var(--accent);
+		padding-bottom: 0.5rem;
+	}
+
+	.contact-methods {
+		display: grid;
+		gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.contact-method {
+		padding: 1.5rem;
+		background: var(--white);
+		border: 1px solid var(--black);
+		border-radius: 4px;
+		transition: box-shadow 0.2s ease;
+	}
+
+	.contact-method:hover {
+		box-shadow: var(--box-shadow);
+	}
+
+	.contact-method h3 {
+		font-size: 1.3rem;
+		color: var(--accent);
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+
+	.contact-method p {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: var(--gray-dark);
+		margin-bottom: 1.5rem;
+	}
+
+	.contact-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+	}
+
+	.contact-link {
+		display: flex;
+		align-items: center;
+		padding: 0.8rem 1rem;
+		background: var(--accent-light);
+		color: var(--black);
+		text-decoration: none;
+		border-radius: 4px;
+		transition: all 0.2s ease;
+		font-weight: 500;
+	}
+
+	.contact-link:hover {
+		background: var(--accent);
+		color: var(--white);
+		text-decoration: none;
+		transform: translateY(-1px);
+	}
+
+	.contact-link .icon {
+		margin-right: 0.8rem;
+		font-size: 1.2rem;
 	}
 
 	/* Media queries para tablets y desktop */
@@ -90,6 +207,11 @@ const description = 'Hiperstición es una editorial cooperativa autogestionada d
 		.contacto-container {
 			margin-left: 50%;
 			border-top: 2px solid var(--accent);
+			padding: 1rem 0 100px 0;
+		}
+
+		.contact-methods {
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		}
 	}
 
@@ -97,10 +219,36 @@ const description = 'Hiperstición es una editorial cooperativa autogestionada d
 		.contacto-container {
 			margin-left: 0;
 			border-top: 2px solid var(--accent);
+			padding: 1rem;
 		}
 
-		article {
+		.about-section h1 {
+			font-size: 2rem;
+		}
+
+		.contact-section h2 {
+			font-size: 1.5rem;
+		}
+
+		.intro-content p,
+		.contact-method p {
 			font-size: 1rem;
+		}
+
+		.contact-methods {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-method {
+			padding: 1rem;
+		}
+
+		.commissions {
+			padding: 1rem;
+		}
+
+		.contact-link {
+			padding: 0.6rem 0.8rem;
 		}
 	}
 </style>
