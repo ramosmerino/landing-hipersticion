@@ -26,17 +26,20 @@ Este sitio web presenta el catálogo de publicaciones de Hiperstición, incluyen
 ### Pasos de instalación
 
 1. **Clonar el repositorio**
+
    ```bash
    git clone <url-del-repositorio>
    cd landing-hipersticion/extraterrestrial-eclipse
    ```
 
 2. **Instalar dependencias**
+
    ```bash
    pnpm install
    ```
 
 3. **Iniciar el servidor de desarrollo**
+
    ```bash
    pnpm dev
    ```
@@ -48,14 +51,14 @@ Este sitio web presenta el catálogo de publicaciones de Hiperstición, incluyen
 
 ### Comandos disponibles
 
-| Comando | Acción |
-| :------ | :----- |
-| `pnpm install` | Instala las dependencias del proyecto |
-| `pnpm dev` | Inicia el servidor de desarrollo en `localhost:4321` |
-| `pnpm build` | Construye el sitio para producción en `./dist/` |
-| `pnpm preview` | Previsualiza la versión de producción localmente |
-| `pnpm astro check` | Verifica tipos y errores en el código |
-| `pnpm astro sync` | Sincroniza tipos de colecciones de contenido |
+| Comando            | Acción                                               |
+| :----------------- | :--------------------------------------------------- |
+| `pnpm install`     | Instala las dependencias del proyecto                |
+| `pnpm dev`         | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build`       | Construye el sitio para producción en `./dist/`      |
+| `pnpm preview`     | Previsualiza la versión de producción localmente     |
+| `pnpm astro check` | Verifica tipos y errores en el código                |
+| `pnpm astro sync`  | Sincroniza tipos de colecciones de contenido         |
 
 ### Estructura del proyecto
 
@@ -106,18 +109,22 @@ extraterrestrial-eclipse/
 ## 🎨 Personalización
 
 ### Colores de marca
+
 El sitio utiliza colores específicos de la identidad de Hiperstición:
+
 - **Primario**: `#d05240` (rojo editorial)
 - **Secundario**: `#b04230` (rojo oscuro)
 - **Fondo**: Gradiente animado con textura noise
 
 ### Tipografía
+
 - **Principal**: Space Grotesk (Google Fonts)
 - **Tamaños responsivos**: Adaptable a diferentes pantallas
 
 ## 📦 Despliegue
 
 ### Construir para producción
+
 ```bash
 pnpm build
 ```
@@ -125,7 +132,9 @@ pnpm build
 Los archivos generados se encontrarán en el directorio `dist/`.
 
 ### Desplegar en plataformas
+
 El sitio está optimizado para desplegarse en:
+
 - **Netlify**: Simplemente conecta el repositorio
 - **Vercel**: Importa el proyecto desde Git
 - **GitHub Pages**: Usa la acción de GitHub Pages
@@ -147,10 +156,11 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 ## 📞 Contacto
 
 **Editorial Hiperstición**
+
 - Email: editorial.hipersticion@gmail.com
 - Instagram: [@hipersticion.editorial](https://www.instagram.com/hipersticion.editorial/)
 - Web: [hipersticion.xyz](https://hipersticion.xyz)
 
 ---
 
-*Hecho con ❤️ por la cooperativa Hiperstición*
+_Hecho con ❤️ por la cooperativa Hiperstición_

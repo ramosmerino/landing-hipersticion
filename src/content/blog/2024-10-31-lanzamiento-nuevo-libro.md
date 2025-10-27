@@ -5,7 +5,7 @@ description: 'Con emoción y ávidez lectora anunciamos el lanzamiento de nuestr
 tags: post
 ---
 
-*Leer escuchando La noche - Raphael*
+_Leer escuchando La noche - Raphael_
 
 La noche. Lo nocturno nos invita a un viaje inquietante y fascinante a través de las formas nocturnas que emergen cuando el sol se oculta y la realidad se transforma. Es la noche lo que inspira las tapas negras de este libro, así como su contenido que, como una vela, nos acompaña echando luz para movernos en las distintas oscuridades del ser. Una inmersión en las profundidades de la experiencia humana tras el ocaso, donde las sombras revelan sus propios habitantes y rituales, susurros de otros tiempos que se entrelazan con las ansiedades y misterios del presente.
 
