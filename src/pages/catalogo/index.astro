@@ -9,7 +9,9 @@ const title = 'Catálogo de Libros';
 const description = 'Explora nuestro catálogo de libros de filosofía, ciencia y pensamiento contemporáneo.';
 
 const books = (await getCollection('books')).filter((book) => book.data.show).sort((a, b) => {
-  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return dateB - dateA;
 });
 ---
 
