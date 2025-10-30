@@ -28,7 +28,7 @@ const books = await getCollection('books');
 							)}
 							<h2 class="book-title"><a href={`/catalogo/${book.data.slug}`}>{book.data.title}</a></h2>
 							<p class="book-author">{book.data.author}</p>
-							<p class="book-description" set:html={book.data.description}></p>
+							<p class="book-description" set:html={book.data.description.replace('<p>', '').split('</p>')[0]}></p>
 						</div>
 					))}
 				</div>

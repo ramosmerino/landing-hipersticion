@@ -7,6 +7,7 @@ const books = defineCollection({
     title: z.string(),
     author: z.string(),
     description: z.string(),
+    keywords: z.string(),
     cover: image(),
     slug: z.string(),
     links: z.array(z.string()).optional().nullable(),

@@ -18,14 +18,14 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 
-const title = `${book.data.title} - Catálogo`;
-const description = `Información detallada sobre "${book.data.title}" de ${book.data.author}. ${book.data.description.substring(0, 150)}...`;
+const title = `${book.data.title} - Catálogo Hiperstición`;
+const description = `${book.data.title} — ${book.data.author} ▲ ${book.data.description.substring(0, 150)}...`;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={title} description={description} image={book.data.cover} />
+		<BaseHead title={title} description={description} image={book.data.cover} keywords={book.data.keywords} />
 	</head>
 	<body>
 		<Menu />
