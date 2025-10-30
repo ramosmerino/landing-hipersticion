@@ -144,6 +144,96 @@ article {
   margin-top: 0;
 }
 
+/* Forms */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--black);
+  border-radius: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--black);
+  box-sizing: border-box;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--black);
+  color: white;
+}
+
+/* Contact form specific styles */
+.contact-form {
+  margin-top: 2.5rem;
+}
+
+.contact-form-container {
+  margin-left: 50%;
+  min-height: 100vh;
+  border-top: 2px solid var(--accent);
+  padding: 4rem 2rem 100px;
+}
+
+.contact-form-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .contact-form-container {
+    margin-left: 0;
+    padding: 2rem 1.5rem;
+  }
+}
+
+
 /* Responsive design */
 @media (min-width: 768px) {
   body {

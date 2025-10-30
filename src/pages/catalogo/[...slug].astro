@@ -45,7 +45,14 @@ const description = `${book.data.title} — ${book.data.author} ▲ ${book.data.
 
 				<div class="book-layout">
 					<div class="book-cover-section">
-						<Image src={book.data.cover} alt={`Portada de ${book.data.title}`} class="book-cover-large">
+						<Image src={book.data.cover} alt={`Portada de ${book.data.title}`} class="book-cover-large" />
+						<a 
+							href={`/contacto/correo?bookTitle=${encodeURIComponent(book.data.title)}&bookAuthor=${encodeURIComponent(book.data.author)}`}
+							class="buy-button"
+						>
+							Comprar
+						</a>
+
 						{book.data.links && book.data.links.length > 0 && (
 							<div class="book-links">
 								<h3>Enlaces</h3>
@@ -97,6 +104,44 @@ const description = `${book.data.title} — ${book.data.author} ▲ ${book.data.
 		margin-left: 50%;
 		min-height: 100vh;
 		border-top: 2px solid var(--accent);
+	}
+
+	.buy-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto;
+		padding: 1rem 2rem;
+		background-color: var(--accent);
+		color: var(--white);
+		text-decoration: none;
+		font-weight: 500;
+		transition: all 0.3s ease;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		position: relative;
+		border: 5px solid var(--accent);
+		cursor: pointer;
+		clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+		width: 55px;
+		height: 75px;
+		font-size: 0.9rem;
+	}
+
+	.buy-button:hover {
+		background-color: var(--accent-dark);
+		clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+		letter-spacing: 3px;
+	}
+
+	.buy-button:active {
+		transform: scale(0.98);
+	}
+
+	.book-cover-section {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 	}
 
 	.book-detail-content {

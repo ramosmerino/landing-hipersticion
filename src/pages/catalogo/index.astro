@@ -28,7 +28,7 @@ const books = (await getCollection('books')).filter((book) => book.data.show).so
 					{books.map((book) => (
 						<div class="book-item">
 							{book.data.cover && (
-								<Image width={400} height={600} src={book.data.cover} alt={`Portada de ${book.data.title}`} class="book-cover" />
+								<a href={`/catalogo/${book.data.slug}`}><Image width={400} height={600} src={book.data.cover} alt={`Portada de ${book.data.title}`} class="book-cover" /></a>
 							)}
 							<h2 class="book-title"><a href={`/catalogo/${book.data.slug}`}>{book.data.title}</a></h2>
 							<p class="book-author">{book.data.author}</p>

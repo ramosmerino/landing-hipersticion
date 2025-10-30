@@ -1,0 +1,54 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Menu from '../../components/Menu.astro';
+import ContactForm from '../../components/ContactForm';
+
+const { title = 'Contacto' } = Astro.props;
+---
+
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={`${title} - Hiperstición`} description="Contacta con Hiperstición editorial para adquirir o vender nuestros libros" />
+  </head>
+  <body>
+    <Menu />
+    <main class="contact-form-container">
+      <div class="contact-form-content">
+        <h1>Contacto</h1>
+        <ContactForm client:only="solid-js" />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .contact-form-container {
+    margin-left: 50%;
+    min-height: 100vh;
+    border-top: 2px solid var(--accent);
+    padding: 4rem 0 100px 0;
+  }
+  
+  .contact-form-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-form-container {
+      margin: 0 auto;
+      padding: 1rem 0;
+    }
+  }
+</style>
