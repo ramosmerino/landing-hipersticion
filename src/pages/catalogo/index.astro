@@ -8,7 +8,9 @@ import Menu from '../../components/Menu.astro';
 const title = 'Catálogo de Libros';
 const description = 'Explora nuestro catálogo de libros de filosofía, ciencia y pensamiento contemporáneo.';
 
-const books = await getCollection('books');
+const books = (await getCollection('books')).filter((book) => !book.data.show).sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
 ---
 
 <!doctype html>

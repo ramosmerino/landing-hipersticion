@@ -15,6 +15,7 @@ const books = defineCollection({
     translators: z.array(z.string()).optional().nullable(),
     edition: z.string().optional().nullable(),
     pubDate: z.coerce.date().optional().nullable(),
+    show: z.boolean().optional().default(true),
   }),
 });
 
