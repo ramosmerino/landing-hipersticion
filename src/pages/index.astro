@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Menu from '../components/Menu.astro';
 import SecondaryMenu from '../components/SecondaryMenu.astro';
+import MobileMarquee from '../components/MobileMarquee.astro';
 import sillaImage from '../assets/silla-synco-dither.png';
 import burkesImage from '../assets/burkes-dither-silla.png';
 
@@ -21,12 +22,65 @@ const description = 'Hiperstición - Editorial cooperativa autogestionada dedica
 			<div class="inicio-menu">
 				<Menu />
 				<Image src={burkesImage} alt="Silla CyberSyn" class="silla" loading="eager" />
+				<MobileMarquee />
 			</div>
 			<section class="inicio">
 				<SecondaryMenu />
 			</section>
 		</div>
 		<Footer />
+
+		<style>
+			.mobile-marquee {
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				z-index: 1;
+				pointer-events: none;
+			}
+
+			.mobile-marquee-content {
+				display: flex;
+				flex-direction: column;
+				animation: mobileMarquee 60s linear infinite;
+				padding: 20px;
+			}
+
+			.mobile-marquee-link {
+				color: white;
+				text-decoration: none;
+				font-size: 1.2rem;
+				margin: 10px 0;
+				text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+				pointer-events: auto;
+				transition: color 0.3s ease;
+			}
+
+			.mobile-marquee-link:hover {
+				color: var(--accent-light);
+			}
+
+			.mobile-marquee-separator {
+				color: white;
+				text-align: center;
+				margin: 5px 0;
+			}
+
+			@keyframes mobileMarquee {
+				0% { transform: translateY(100%); }
+				100% { transform: translateY(-100%); }
+			}
+
+			@media (max-width: 767px) {
+				.mobile-marquee {
+					display: block;
+				}
+			}
+		</style>
 	</body>
 </html>
 
@@ -437,16 +491,6 @@ const description = 'Hiperstición - Editorial cooperativa autogestionada dedica
 				secondaryMenuItems: secondaryMenuItems.length,
 				svg: !!svg
 			});
-
-			// Test: Add a visible circle to verify SVG is working
-			const testCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-			testCircle.setAttribute('cx', '50');
-			testCircle.setAttribute('cy', '50');
-			testCircle.setAttribute('r', '5');
-			testCircle.setAttribute('fill', '#00ff00');
-			testCircle.setAttribute('opacity', '0.3');
-			svg!.appendChild(testCircle);
-			console.log('Test circle added to SVG');
 		}, 100); // Wait 100ms for components to render
 	});
 </script>
