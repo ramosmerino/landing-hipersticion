@@ -226,7 +226,7 @@ textarea {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
   .contact-form-container {
     margin-left: 0;
     padding: 2rem 1.5rem;
@@ -259,7 +259,7 @@ textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
   main {
     padding: 1em;
   }
