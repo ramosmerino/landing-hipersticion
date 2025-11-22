@@ -157,7 +157,7 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 **Editorial Hiperstición**
 
-- Email: editorial.hipersticion@gmail.com
+- Email: editorial@hipersticion.cl
 - Instagram: [@hipersticion.editorial](https://www.instagram.com/hipersticion.editorial/)
 - Web: [hipersticion.cl](https://hipersticion.cl)
 
