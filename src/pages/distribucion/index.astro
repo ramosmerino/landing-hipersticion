@@ -9,6 +9,14 @@ const description = 'Encuentra nuestros libros en librerías y puntos de venta e
 
 const distributionPoints = [
 	{
+		country: 'Chile',
+		bookstore: 'Aspasia Libros',
+		contact: {
+			phone: '+56 9 9356 9201',
+			address: 'Avda. Italia 1449, local 7, Providencia, Santiago'
+		}
+	},
+	{
 		country: 'España',
 		bookstore: 'Librería Cervantes',
 		contact: {
@@ -58,7 +66,7 @@ const distributionPoints = [
 							<span data-label="País: ">{point.country}</span>
 							<span data-label="Librería: ">{point.bookstore}</span>
 							<span data-label="Contacto: ">
-								<a href={`mailto:${point.contact.email}`}>{point.contact.email}</a><br>
+								{point.contact.email ? <a href={`mailto:${point.contact.email}`}>{point.contact.email}</a> : null}<br>
 								{point.contact.phone}<br>
 								{point.contact.address}
 							</span>
